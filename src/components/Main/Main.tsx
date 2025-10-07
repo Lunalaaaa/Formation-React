@@ -1,5 +1,5 @@
 /* Global Imports */
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 
 /* Application Level Imports */
 import * as Hooks from '@/hooks';
@@ -8,7 +8,9 @@ import * as Hooks from '@/hooks';
 import { MainWrapper } from './Main.styled';
 
 
-interface MainProps extends PropsWithChildren { }
+interface MainProps { 
+   children: React.ReactNode
+}
 
 
 const Main: FC<MainProps> = ({children}) => {
@@ -18,16 +20,6 @@ const Main: FC<MainProps> = ({children}) => {
    return(
    <MainWrapper data-testid="Main">
       {children}
-   </MainWrapper>
-   );
-
-}
-
-/**
- * USAGE: Main description to complete.
- * @example
- * <Main /> 
-      Main Component
    </MainWrapper>
    );
 

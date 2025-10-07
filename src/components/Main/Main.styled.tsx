@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 
 export const MainWrapper = styled.main`
     display: block;
+    margin-top: 40px;
+    box-sizing: border-box;
     padding: 20px;
-    background-color: #f9f9f9;
-    padding-top: 40px;
-    min-height: calc(100vh - 50px);
 `;

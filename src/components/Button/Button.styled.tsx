@@ -1,79 +1,52 @@
-import { UI } from '@/core/tokens';
-import { UILevel, UISize } from '@/core/types/ui.types';
 import styled from '@emotion/styled';
 
-export const ButtonWrapper = styled.button<UISize & { disabled?: boolean } & UILevel>`
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 16px;
+export const ButtonWrapper = styled.button`
+    width: auto;
     cursor: pointer;
-    border: none;
-    transition: background-color 0.3s, color 0.3s, border 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+
+
+    &.small {
+        font-size: small;
+    }
+
+    &.medium {
+        font-size: medium;
+    }
+    
+    &.large {
+        font-size: large;
+    }
+
+    &.primary {
+        background-color: yellow;
+        color: black;
+        &:hover {
+            background-color: #F6CF57;
+        }
+    }
+
+    &.optional {
+        background-color: white;
+        color: black;
+        &:hover {
+            background-color: darkgray;
+        }
+    }
+
+    &.critical {
+        background-color: black;
+        color: #F6CF57;
+        &:hover {
+            background-color: #1e1d1c;
+        }
+    }
 
     &:disabled {
         cursor: not-allowed;
-        opacity: 0.6;
+        opacity: 0.8;
     }
 
-    ${(props) => {
-        switch (props.size) {
-            case 'small':
-                return `
-                    padding: 4px 8px;
-                    font-size: 12px;
-                `;              
-            case 'medium':
-                return `
-                    padding: 8px 16px;
-                    font-size: 16px;
-                `;
-            case 'large':
-                return `
-                    padding: 12px 24px;
-                    font-size: 20px;
-                `;
-            default:
-                return null;
-        }
-    }} 
-    
-    ${(props) => {
-        switch (props.level) {
-            case 'primary':
-                return `
-                    background-color: ${UI.colors.yellow};
-                    color: ${UI.colors.black};
-                    border: none;
-
-                    &:hover:enabled {
-                        background-color: ${UI.colors.darkYellow};
-                    }
-                `;
-            case 'optional':
-                return `
-                    background-color: transparent;
-                    color: ${UI.colors.black};
-                    border: 2px solid ${UI.colors.black};
-
-                    &:hover:enabled {
-                        background-color: ${UI.colors.lightGray};
-                    }
-                `;
-            case 'critical':
-                return `
-                    background-color: ${UI.colors.black};
-                    color: ${UI.colors.yellow};
-                    border: none;
-
-                    &:hover:enabled {
-                        background-color: ${UI.colors.darkGray};
-                    }
-                `;
-            default:
-                return null;
-        }
-    }}
-`
+`;

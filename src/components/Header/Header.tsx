@@ -8,20 +8,20 @@ import * as Hooks from '@/hooks';
 import { HeaderWrapper } from './Header.styled';
 import { NavLink } from 'react-router';
 
-
 interface NavItemProps {
-   to: `/${'' | 'home' | 'products' | 'flights' | 'users'}`;
-   label: Capitalize<string>;
-   css: 'yellow';
+   to: `/${'' | 'home' | 'products' | 'flights' | 'users'}`,
+   label: Capitalize<string>,
+   css: 'pikachu'
 }
 
-const NavItem: FC<NavItemProps> = ({ to, label, css }) => (
-   <li aria-roledescription='Navigation Item'>
-      <NavLink to={to} className={({ isActive }) => isActive ? css : ""}>{label}</NavLink>
+interface HeaderProps { }
+
+const NavItem:FC<NavItemProps> = ({to, label, css}) => (
+   <li>
+      <NavLink to={to} className={({ isActive }) => isActive ? css : ""} aria-description={label}>{label}</NavLink>
    </li>
 );
 
-interface HeaderProps { }
 
 
 const Header: FC<HeaderProps> = () => {
@@ -30,17 +30,35 @@ const Header: FC<HeaderProps> = () => {
 
    return(
    <HeaderWrapper data-testid="Header">
-      <h3>Header Component</h3>
-
-      <nav aria-roledescription='Navigation Menu'>
+      Header Component
+      <nav>
          <ul>
-            <NavItem to='/' label='Home' css='yellow' />
-            <NavItem to='/products' label='Products' css='yellow' />
-            <NavItem to='/flights' label='Flights' css='yellow' />
-            <NavItem to='/users' label='Users' css='yellow' />
+            <NavItem to='/' label='Home' css='pikachu' />
+            <NavItem to='/products' label='Products' css='pikachu' />
+            <NavItem to='/flights' label='Flights' css='pikachu' />
+            <NavItem to='/users' label='User' css='pikachu' />
+            {/* <li>
+               <NavLink className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "pikachu" : ""
+               } to="/" aria-description='Home'>Home</NavLink>
+            </li>
+            <li>
+               <NavLink className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "pikachu" : ""
+               }  to="/products" aria-description="Products">Products</NavLink>
+            </li>
+            <li>
+               <NavLink className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "pikachu" : ""
+               }  to="/flights" aria-description="Flights">Flights</NavLink>
+            </li>
+            <li>
+               <NavLink className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "pikachu" : ""
+               } to="/users" aria-description="Users">Users</NavLink>
+            </li> */}
          </ul>
       </nav>
-
    </HeaderWrapper>
    );
 

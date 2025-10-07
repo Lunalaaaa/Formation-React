@@ -1,56 +1,51 @@
 /* eslint-disable */
-import { fn } from '@storybook/test';
-import { Meta, StoryObj } from '@storybook/react';
+import * as UI from "@/components";
+import { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 
-import Button from './Button';
-
-/**
- * USAGE: Button description to complete.
- */
 const meta = {
+  component: UI.Button,
   title: 'UI/Button',
-  component: Button,
   parameters: {
-    layout: 'centered',
+    layout: 'centered'
+  },
+  argTypes: {
+    level: {control: 'select', options: ['primary', 'optional', 'critical']},
+    size: {control: 'select', options: ['small', 'medium', 'large']}, 
+    disabled: {control: 'boolean'},
   },
   tags: ['autodocs'],
-  argTypes: {
-    level: { control: 'select', options: ['primary', 'secondary', 'tertiary'] },
-    size: { control: 'select', options: ['small', 'medium', 'large'] },
-    disabled: { control: 'boolean' },
-  },
-  args: { action: fn() },
-} satisfies Meta<typeof Button>;
+  args: {
+    action: fn(),
+  }
+} satisfies Meta<typeof UI.Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  storyName: 'Primary Button',
   args: {
-    level: 'primary',
     disabled: false,
+    level: "primary",
     size: 'medium',
-    children: 'Primary Button',
+    children: 'Bouton primaire'
   },
 };
 
 export const Optional: Story = {
-  storyName: 'Optional Button',
   args: {
-    level: 'optional',
     disabled: false,
+    level: 'optional',
     size: 'medium',
-    children: 'Optional Button',
+    children: 'Bouton optionnal'
   },
 };
 
 export const Critical: Story = {
-  storyName: 'Critical Button',
   args: {
-    level: 'critical',
     disabled: false,
+    level: 'critical',
     size: 'medium',
-    children: 'Critical Button',
+    children: 'Bouton critical'
   },
 };

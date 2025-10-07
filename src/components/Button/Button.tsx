@@ -1,23 +1,22 @@
 /* Global Imports */
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 
 /* Application Level Imports */
 import * as Hooks from '@/hooks';
 
 /* Local Imports */
 import { ButtonWrapper } from './Button.styled';
-import { UIActionnable, UILevel, UISize } from '@/core/types/ui.types';
-import { UI } from '@/core';
+import { ButtonProps } from './Button.type';
 
 
-interface ButtonProps extends PropsWithChildren, UISize, UIActionnable, UILevel {
-   disabled?: boolean;
- }
+const Button: FC<ButtonProps> = ({ children, action, disabled, level, size }) => {
 
-const Button: FC<ButtonProps> = (props) => {
+   // Hooks.useGloblaEvent('click',()=> console.log('click event'));
 
    return(
-   <ButtonWrapper data-testid="Button" {...props} />
+      <ButtonWrapper data-testid="Button" onClick={action} disabled={disabled} className={level + ' ' + size}>
+         {children}
+      </ButtonWrapper>
    );
 
 }
