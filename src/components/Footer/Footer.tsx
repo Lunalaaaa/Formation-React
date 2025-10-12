@@ -11,7 +11,7 @@ import { Link } from 'react-router';
 
 interface ReseauSocial {
    icone: 'instagram' | 'discord' | 'facebook' | 'twitter',
-   lien: `${'https://' | 'http://'}${string}/${string}.${string}`
+   lien: `${'https://' | 'http://'}${string}.${string}`
    nomLien: Capitalize<string>
 }
 
@@ -21,7 +21,7 @@ interface InformationLegale {
 }
 
 interface InfoContact {
-   tel: number,
+   tel: string,
    mail: string,
    adresse: string
 }
@@ -42,7 +42,12 @@ const LegalComponent:FC<InformationLegale> = ({lien, nomLien}) => (
 
 const ReseauSocialComponent:FC<ReseauSocial> = ({lien, nomLien, icone}) => (
    <li>
-      {icone}
+      <img 
+         src={`/src/assets/icones/${icone}.png`} 
+         alt={icone} 
+         width={30}
+         height={30}
+      />
       <Link to={lien} >
          {nomLien}
       </Link>
@@ -54,46 +59,50 @@ const Footer: FC<FooterProps> = ({children, liensReseauxSociaux, informationsLeg
    // Hooks.useGloblaEvent('click',()=> console.log('click event'));
 
    return(
-      <>
-         <div style={{position: 'fixed', bottom: '60px', textAlign: 'center', width: '100%', rotate: '180deg'}}>
-            <img src={pikaUpsideDown} width={200} height={100} />
+      <div style={{ position: 'fixed', bottom: 0, width: '100%', zIndex: 5 }}>         
+         <div className="footer-image">
+            <img src={pikaUpsideDown} style={{ transform: 'rotate(180deg)', display: 'block', margin: '0 auto' }} width={200} height={100} alt="Pikachu à l’envers" />
          </div>
          <FooterWrapper data-testid="Footer">
-            <div id='infosContact'>
-               <h4>Informations de contact</h4>
-               <ul>
-                  <li>
-                     📞 {tel}
-                  </li>
-                  <li>
-                     📧 {mail}
-                  </li>
-                  <li>
-                     📌 {adresse}
-                  </li>
-               </ul>
-            </div>
-            <div id='infosLegales'>
-               <h4>Informations légales</h4>
-               <ul>
-                  { 
-                     informationsLegales.map((legal) => <LegalComponent lien={legal.lien} nomLien={legal.nomLien} />)
-                  }
-               </ul>
-            </div>
-            <div id='infosReseauxSociaux'>
-               <h4>Nos réseaux sociaux</h4>
-               <ul>
-                  { 
-                     liensReseauxSociaux.map((reseau) => <ReseauSocialComponent lien={reseau.lien} nomLien={reseau.nomLien} icone={reseau.icone} />)
-                  }
-               </ul>
+            <div id="footerContainer">
+               <div id='infosContact'>
+                  <h4>Informations de contact</h4>
+                  <ul>
+                     <li>
+                        📞 {tel}
+                     </li>
+                     <li>
+                        📧 {mail}
+                     </li>
+                     <li>
+                        <Link to={"https://maps.app.goo.gl/43HVFBnYL1Ljgc3KA"} target='_blank'>
+                           📌 {adresse}
+                        </Link>
+                     </li>
+                  </ul>
+               </div>
+               <div id='infosLegales'>
+                  <h4>Informations légales</h4>
+                  <ul>
+                     { 
+                        informationsLegales.map((legal) => <LegalComponent lien={legal.lien} nomLien={legal.nomLien} />)
+                     }
+                  </ul>
+               </div>
+               <div id='infosReseauxSociaux'>
+                  <h4>Nos réseaux sociaux</h4>
+                  <ul>
+                     { 
+                        liensReseauxSociaux.map((reseau) => <ReseauSocialComponent lien={reseau.lien} nomLien={reseau.nomLien} icone={reseau.icone} />)
+                     }
+                  </ul>
+               </div>
             </div>
             <div id='general'>
                {children}
             </div>
          </FooterWrapper>
-      </>
+      </div>
    );
 
 }
@@ -110,7 +119,7 @@ const FooterMemo = React.memo(Footer, (prevProps, nextProps) => {
    return false if props are not equal
    */
    console.log(prevProps, nextProps)
-   return true;
+   return false;
 });
 FooterMemo.displayName = 'Footer Memoized';
 

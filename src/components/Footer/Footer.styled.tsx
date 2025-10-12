@@ -1,29 +1,63 @@
 import styled from "@emotion/styled";
 
 export const FooterWrapper = styled.footer`
-    border-top: 1px solid black;
+    position: relative;
+    background-color: #F6CF57;
     text-align: center;
-    position: fixed;
-    bottom: 0;
+    border-top: 1px solid black;
     padding: 10px;
+    width: 100%;
     font-size: larger;
     font-weight: bold;
-    width: 100%;
-    height: 40px;
-    background-color: #F6CF57;
-    display: table-column;
+
+    .footer-image {
+        position: absolute;
+        top: -100px; 
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    #footerContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        #footerContainer {
+        grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    #footerContainer > div {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    #footerContainer h4 {
+        margin-bottom: 1rem;
+        color: #f0f0f0;
+    }
+
+    #footerContainer ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #footerContainer li {
+        margin-bottom: 0.5rem;
+    }
+
+    #general {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
 
     &:hover {
         background-color: #ffdf80;
     }
 
-    &#infosContact {
-        display: table-row;
-    }
-    &#infosLegales {
-        display: table-row;
-    }
-    &#infosReseauxSociaux {
-        display: table-row;
-    }
 `;

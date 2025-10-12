@@ -4,7 +4,7 @@
 
 * ✅ Header
 * ✅ Button
-* Footer
+* ✅ Footer
 * Main
 * Image
 * Input
@@ -20,10 +20,10 @@
 
 ## Footer
 
-* Composant Responsive footer
-* Permet d'afficher un footer responsive
-* Contient des liens vers les réseaux sociaux et les informations légales
-* Et des informations de contact personnalisables
+* ✅ Composant Responsive footer
+* ✅ Permet d'afficher un footer responsive
+* ✅ Contient des liens vers les réseaux sociaux et les informations légales
+* ✅ Et des informations de contact personnalisables
 
 ## Image
 
