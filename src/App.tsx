@@ -1,6 +1,5 @@
 /* Global Imports */
 import { BrowserRouter, Route, Routes } from "react-router";
-import { CacheProvider } from "@emotion/react";
 
 /* Application Level Imports */
 import * as UI from "@/components";
@@ -50,7 +49,6 @@ function App() {
           }
           mail="tkicien@armonie.group"
           tel="0430969732"
-
           >
           Copyrights du footer
         </UI.Footer>

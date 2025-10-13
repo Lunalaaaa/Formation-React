@@ -1,24 +1,39 @@
 /* Global Imports */
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 /* Application Level Imports */
 import * as Hooks from '@/hooks';
+import pikaUpsideDown from '@/assets/pika_upside_down.png';
 
 /* Local Imports */
 import { ImageWrapper } from './Image.styled';
 
 
-interface ImageProps { }
+interface ImageProps {
+   // imageSrc: `${string}${'.png' | '.jpeg' | '.jpg' | '.svg'}`;
+   imageSrc: string;
+   alt?: string;
+   overlay?: number
+}
 
 
-const Image: FC<ImageProps> = () => {
+const Image: FC<ImageProps> = ({imageSrc, alt, overlay}) => {
 
-   // Hooks.useGloblaEvent('click',()=> console.log('click event'));
+   const [defaultImage, setDefaultImage] = useState(imageSrc);
 
    return(
-   <ImageWrapper data-testid="Image">
-      Image Component
-   </ImageWrapper>
+      <ImageWrapper>
+         <img
+            src={defaultImage}
+            alt={alt ?? 'Pas de description'}
+            className={overlay ? `overlayImage` : ''}
+            style={{zIndex: overlay}}
+            onError={() => {
+               console.warn(`Image non trouvée : ${imageSrc}, affichage du fallback.`);
+               setDefaultImage(pikaUpsideDown);
+            }}
+         />
+      </ImageWrapper>
    );
 
 }

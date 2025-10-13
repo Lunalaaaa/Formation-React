@@ -6,7 +6,7 @@
 * ✅ Button
 * ✅ Footer
 * Main
-* Image
+* ✅ Image
 * Input
 * Card
 * AutoComplete
@@ -28,11 +28,10 @@
 ## Image
 
 * Composant Image
-* Composant d'affichage d'une image avec gestion des erreurs de chargement.
-* Si l'image ne peut pas être chargée, une image par défaut est affichée.
-*
-* Peut recevoir une description pour l'attribut alt.
-* S'affichant overlay sur l'image.
+* ✅ Composant d'affichage d'une image avec gestion des erreurs de chargement.
+* ✅ Si l'image ne peut pas être chargée, une image par défaut est affichée.
+* ✅ Peut recevoir une description pour l'attribut alt.
+* ✅ S'affichant overlay sur l'image.
 
 ## Input
 
