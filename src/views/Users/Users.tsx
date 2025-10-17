@@ -18,7 +18,34 @@ const Users: FC<UsersProps> = () => {
 
    return (
    <div className="Users" data-testid="Users">
-      <UI.Main>Users Content</UI.Main>
+      <UI.Main>
+         <UI.Input 
+            placeholder="Email"
+            onChange={() => console.log('input changé')}
+            type='email'
+            required={true}
+            value=""
+            pattern="^[^@]+@[^@]+\.[^@]+$"
+         />
+         <UI.Input 
+            placeholder="Password"
+            onChange={() => {}}
+            type='password'
+            required={true}
+            value="blbl"
+
+         />
+         <UI.Input 
+            placeholder="Date"
+            onChange={() => console.log('input changé')}
+            type='date'
+            required={false}
+            value=""
+            pattern="^[^@]+@[^@]+\.[^@]+$"
+         />
+
+         Users Content
+      </UI.Main>
    </div>
    )
 };

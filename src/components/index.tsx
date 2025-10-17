@@ -4,4 +4,5 @@ export { default as Card } from './Card';
 export { default as Footer } from './Footer';
 export { default as Image } from './Image';
 export { default as Main } from './Main'; 
+export { default as Input } from './Input';
 /* export { default as DataGrid } from './DataGrid'; */
