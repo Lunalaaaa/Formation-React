@@ -38,15 +38,15 @@
 * Composant Input
 * Composant réutilisable pour les champs de formulaire
 *
-* Personnalsation de :
-* * type (text, password, email, etc.)
-* * placeholder
-* * value
-* * onChange
-* * regle de validation (pattern, required, etc.)
+* Personnalisation de :
+* * ✅ type (text, password, email, etc.)
+* * ✅ placeholder
+* * ✅ value
+* * ✅ onChange
+* * ✅ regle de validation (pattern, required, etc.)
 *
 * Affiche un message d'erreur si la validation échoue
-* Reflete l'état de validation visuellement
+* ✅ Reflete l'état de validation visuellement
 
 ## Card
 

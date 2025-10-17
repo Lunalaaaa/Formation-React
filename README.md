@@ -28,19 +28,19 @@ git branch -M dev
 
 <!-- LINE_COUNT_PLACEHOLDER_1 -->
 
-**Lines of Code:** `2189`  
+**Lines of Code:** `2557`  
 **Project Size:** Growing codebase 🏗️
 
 | Extension | Files | Effective LOC |
 |-----------|--------|----------------:|
-| `.tsx` | 57 | 915 |
+| `.tsx` | 62 | 1264 |
 | `.ts` | 22 | 451 |
 | `.md` | 9 | 342 |
 | `.mdx` | 1 | 327 |
-| `.css` | 8 | 149 |
+| `.css` | 8 | 168 |
 | `.avif` | 1 | 5 |
 | `no_ext` | 12 | 0 |
-| **Total** | **110** | **2189** |
+| **Total** | **115** | **2557** |
 
 <!-- LINE_COUNT_PLACEHOLDER_2 -->
 

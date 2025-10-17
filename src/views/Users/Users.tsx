@@ -1,5 +1,5 @@
 /* Global Imports */
-import  { FC } from 'react';
+import  { FC, useState } from 'react';
 
 /* Application Level Imports */
 import * as UI from '@/components';
@@ -16,15 +16,17 @@ const Users: FC<UsersProps> = () => {
 
    Hooks.useDocumentTitle('Users View');
 
+   const [email, setEmail] = useState("");
+
    return (
    <div className="Users" data-testid="Users">
       <UI.Main>
          <UI.Input 
             placeholder="Email"
-            onChange={() => console.log('input changé')}
+            onChange={(e) => setEmail(e.target.value)}
             type='email'
             required={true}
-            value=""
+            value={email}
             pattern="^[^@]+@[^@]+\.[^@]+$"
          />
          <UI.Input 
@@ -32,15 +34,14 @@ const Users: FC<UsersProps> = () => {
             onChange={() => {}}
             type='password'
             required={true}
-            value="blbl"
-
+            value={"blbl"}
          />
          <UI.Input 
             placeholder="Date"
             onChange={() => console.log('input changé')}
             type='date'
             required={false}
-            value=""
+            value={""}
             pattern="^[^@]+@[^@]+\.[^@]+$"
          />
 
