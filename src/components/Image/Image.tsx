@@ -7,15 +7,7 @@ import pikaUpsideDown from '@/assets/pika_upside_down.png';
 
 /* Local Imports */
 import { ImageWrapper } from './Image.styled';
-
-
-interface ImageProps {
-   // imageSrc: `${string}${'.png' | '.jpeg' | '.jpg' | '.svg'}`;
-   imageSrc: string;
-   alt?: string;
-   overlay?: number
-}
-
+import ImageProps from '@/components/Image/Image.type';
 
 const Image: FC<ImageProps> = ({imageSrc, alt, overlay}) => {
 

@@ -7,8 +7,8 @@
 * ✅ Footer
 * Main
 * ✅ Image
-* Input
-* Card
+* ✅ Input
+* ✅ Card
 * AutoComplete
 * SearchField
 * Loader
@@ -50,10 +50,10 @@
 
 ## Card
 
-* Composant Card
-* Composant de base pour afficher une carte avec un titre et du contenu.
-* Permet aussi de gérer des boutons d'action.
-* Peut etre ouvert ou fermé.
+* ✅ Composant Card
+* ✅ Composant de base pour afficher une carte avec un titre et du contenu.
+* ✅ Permet aussi de gérer des boutons d'action.
+* ✅ Peut etre ouvert ou fermé.
 *
 
 ## AutoComplete
