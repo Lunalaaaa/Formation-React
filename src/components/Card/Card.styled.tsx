@@ -32,7 +32,7 @@ export const CardWrapper = styled.div`
         text-align: center;
     }
 
-    #card {
+    .card {
         overflow: hidden;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -41,11 +41,11 @@ export const CardWrapper = styled.div`
         max-height: 0;
     }
 
-    #card.deplier {
+    .card.deplier {
         max-height: 1000px;
     }
 
-    #card.plier {
+    .card.plier {
         max-height: 0;
     }
 

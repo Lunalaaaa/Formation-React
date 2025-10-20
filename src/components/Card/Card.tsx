@@ -1,5 +1,5 @@
 /* Global Imports */
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren, useRef } from 'react';
 
 /* Application Level Imports */
 import * as Hooks from '@/hooks';
@@ -10,6 +10,7 @@ import ImageProps from '@/components/Image/Image.type';
 import ButtonProps from '@/components/Button/Button.type';
 import * as UI from '@/components';
 import pikaUpsideDown from '@/assets/pika_upside_down.png';
+import { current } from '@reduxjs/toolkit';
 
 interface CardProps extends ImageProps, PropsWithChildren {
    titre: string,
@@ -21,15 +22,27 @@ const Card: FC<CardProps> = ({ titre, buttons, children, imageSrc, alt, overlay 
 
    // Hooks.useGloblaEvent('click',()=> console.log('click event'));
 
+   // const animationCard = () => {
+   //    const card = document.getElementById("card");
+   //    if (card?.classList.contains('deplier')) {
+   //       card.classList.remove('deplier');
+   //       card.classList.add('plier');
+   //    }
+   //    else {
+   //       card?.classList.remove('plier');
+   //       card?.classList.add('deplier');
+   //    }
+   // };
+
+   const cardRef = useRef<HTMLDivElement | null>(null);
    const animationCard = () => {
-      const card = document.getElementById("card");
-      if (card?.classList.contains('deplier')) {
-         card.classList.remove('deplier');
-         card.classList.add('plier');
+      if (cardRef.current?.classList.contains('deplier')) {
+         cardRef.current.classList.remove('deplier');
+         cardRef.current.classList.add('plier');
       }
       else {
-         card?.classList.remove('plier');
-         card?.classList.add('deplier');
+         cardRef.current?.classList.remove('plier');
+         cardRef.current?.classList.add('deplier');
       }
    };
 
@@ -39,7 +52,7 @@ const Card: FC<CardProps> = ({ titre, buttons, children, imageSrc, alt, overlay 
             <div className="footer-image" onClick={animationCard}>
                <img src={pikaUpsideDown} style={{ transform: 'rotate(180deg)', display: 'block', margin: '0 auto' }} width={200} height={100} alt="Pikachu à l’envers" />
             </div>
-            <div className='card deplier' id='card'>
+            <div className='card deplier' ref={cardRef}>
                <div className='card-header'>
                   {titre}
                </div>
